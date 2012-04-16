@@ -1,0 +1,37 @@
+XF Open Framework (XFOF)
+
+This is an open framework for XF developers to add their freely distributed add-on and/or template edits to XF license holders.
+
+Standardized
+
+The entire purpose of this open framework is to not confuse novices, yet instead make adding custom features to Xenforo without complication.
+
+Template Modification System (TMS)
+
+XFOF uses the TMS to provide all template modifications. You can use the TMS or use PHP directly, the choice is yours as a developer.
+
+Open Editing
+
+Adding anything to the framework allows for others to refine your work, improve it, modify it, basically to give the framework the best momentum for forward compatibility as possible.
+
+Templates
+
+All custom templates must start with xfof_ to ensure all XFOF templates can be easily located at the end of XF templates, all nested together, so users don't have to chase templates throughout styles.
+
+Style Properties
+
+All style properties should be built into the existing XFOF style settings and option panels, clearly using the modification name to denote what it refers to.
+
+This keeps all style enabling / disabling and minor customisations in one location.
+
+If your add-on is simply that large with so many style properties it needs its own styling tabs, then you should create them directly nested with XFOF, using XFOF Add-on Name, keeping the same clean solution that is all located together for ease of use.
+
+Style Options
+
+There is an XFOF option page already established. The same rules should apply, being you add your contribution under your add-ons heading to the options page, thus reducing overall clutter by introducing options throughout XF option pages.
+
+If you add-on has so many options that it absolutely requires its own options page, then you should create them directly nested with XFOF, using XFOF add-on name, keeping the same clean solution that is all located together for ease of use.
+
+Clutterless Is The Idea
+
+The less style pages and options pages presented, means the simplest solution for novices to find everything in a single location.
