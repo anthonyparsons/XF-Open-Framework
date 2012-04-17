@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="xfof" title="XF Open Framework" version_string="1.0" version_id="1" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Xfof_OnlineStatus_Plugin_Plugin" callback_method="extendModel" active="1" description="Extend the model to add a join to the session table"/>
+    <listener event_id="template_hook" execute_order="10" callback_class="Xfof_OnlineStatus_Plugin_Plugin" callback_method="messageUserInfo_TemplateHook" active="1" description="Display user online information within postbit"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <group group_id="xfofOptions" display_order="10000" debug_only="0"/>
+    <option option_id="displayOnlineLocation" edit_format="select" data_type="string" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params>1 = Above Avatar
+2 = Below Avatar
+3 = Above Username
+4 = Below User Title
+5 = Above User Extra Info
+6 = Below User Extra Info</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="xfofOptions" display_order="10"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="offline" global_cache="1" version_id="3" version_string="1"><![CDATA[Offline]]></phrase>
+    <phrase title="online" global_cache="1" version_id="3" version_string="1"><![CDATA[Online]]></phrase>
+    <phrase title="online_invisible" global_cache="1" version_id="3" version_string="1"><![CDATA[Online]]></phrase>
+    <phrase title="option_displayOnlineLocation" version_id="1" version_string=""><![CDATA[Online Display Location]]></phrase>
+    <phrase title="option_displayOnlineLocation_explain" version_id="1" version_string=""><![CDATA[Controls the location of the Online Display]]></phrase>
+    <phrase title="option_group_xfofOptions" version_id="1" version_string=""><![CDATA[XF Open Framework (XFOF)]]></phrase>
+    <phrase title="option_group_xfofOptions_description" version_id="1" version_string=""><![CDATA[Options pertaining to the XFOF.]]></phrase>
+    <phrase title="style_property_group_xfof_master" version_id="1" version_string=""><![CDATA[XF Open Framework (XFOF)]]></phrase>
+    <phrase title="style_property_group_xfof_master_desc" version_id="1" version_string=""><![CDATA[Contains XFOF options]]></phrase>
+    <phrase title="style_property_xfofEnableOnlineStatus_description_master" version_id="1" version_string=""><![CDATA[Enable / disable adding online, offline, invisible indicator to message user block.]]></phrase>
+    <phrase title="style_property_xfofEnableOnlineStatus_master" version_id="1" version_string=""><![CDATA[Online Status Indicator]]></phrase>
+    <phrase title="style_property_xfofInvisibleStatusSpan_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofInvisibleStatusSpan_master" version_id="1" version_string=""><![CDATA[Invisible Status Span]]></phrase>
+    <phrase title="style_property_xfofInvisibleStatus_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofInvisibleStatus_master" version_id="1" version_string=""><![CDATA[Invisible Status]]></phrase>
+    <phrase title="style_property_xfofMessageUserInfo_description_master" version_id="1" version_string=""><![CDATA[Enable / disable adding admin user links from message user info block username.]]></phrase>
+    <phrase title="style_property_xfofMessageUserInfo_master" version_id="1" version_string=""><![CDATA[Add User Admin Links]]></phrase>
+    <phrase title="style_property_xfofOfflineStatusSpan_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofOfflineStatusSpan_master" version_id="1" version_string=""><![CDATA[Offline Status Span]]></phrase>
+    <phrase title="style_property_xfofOfflineStatus_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofOfflineStatus_master" version_id="1" version_string=""><![CDATA[Offline Status]]></phrase>
+    <phrase title="style_property_xfofOnlineStatusSpan_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofOnlineStatusSpan_master" version_id="1" version_string=""><![CDATA[Online Status Span]]></phrase>
+    <phrase title="style_property_xfofOnlineStatus_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofOnlineStatus_master" version_id="1" version_string=""><![CDATA[Online Status]]></phrase>
+    <phrase title="style_property_xfofOverlayRegistration_description_master" version_id="1" version_string=""><![CDATA[Change registration dropdown to popup overlay.
+
+Ensure: Style Properties > Overlays & Tooltips > Enable Overlays is enabled.]]></phrase>
+    <phrase title="style_property_xfofOverlayRegistration_master" version_id="1" version_string=""><![CDATA[Overlay Registration / Login]]></phrase>
+    <phrase title="style_property_xfofPollToButton_description_master" version_id="1" version_string=""><![CDATA[Strip poll from create thread to button option. Click button to show poll options.]]></phrase>
+    <phrase title="style_property_xfofPollToButton_master" version_id="1" version_string=""><![CDATA[Poll To Button]]></phrase>
+    <phrase title="style_property_xfofProfileSupportUrl_description_master" version_id="1" version_string=""><![CDATA[URL path excluding base forum href.]]></phrase>
+    <phrase title="style_property_xfofProfileSupportUrl_master" version_id="1" version_string=""><![CDATA[URL]]></phrase>
+    <phrase title="style_property_xfofProfileSupport_description_master" version_id="1" version_string=""><![CDATA[Enable / disable adding a profile support message to admin and staff profiles to stop posting of help questions upon profiles.]]></phrase>
+    <phrase title="style_property_xfofProfileSupport_master" version_id="1" version_string=""><![CDATA[Profile Support]]></phrase>
+    <phrase title="style_property_xfofRememberMe_description_master" version_id="1" version_string=""><![CDATA[Enables automatic checking of the "remember me" login checkbox.]]></phrase>
+    <phrase title="style_property_xfofRememberMe_master" version_id="1" version_string=""><![CDATA[Remember Me]]></phrase>
+    <phrase title="style_property_xfofRibbonFiveDiv_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonFiveDiv_master" version_id="1" version_string=""><![CDATA[Ribbon 5 Div]]></phrase>
+    <phrase title="style_property_xfofRibbonFive_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonFive_master" version_id="1" version_string=""><![CDATA[Ribbon 5]]></phrase>
+    <phrase title="style_property_xfofRibbonFourDiv_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonFourDiv_master" version_id="1" version_string=""><![CDATA[Ribbon 4 Div]]></phrase>
+    <phrase title="style_property_xfofRibbonFour_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonFour_master" version_id="1" version_string=""><![CDATA[Ribbon 4]]></phrase>
+    <phrase title="style_property_xfofRibbonOneDiv_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonOneDiv_master" version_id="1" version_string=""><![CDATA[Ribbon 1 Div]]></phrase>
+    <phrase title="style_property_xfofRibbonOne_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonOne_master" version_id="1" version_string=""><![CDATA[Ribbon 1]]></phrase>
+    <phrase title="style_property_xfofRibbonsActive_description_master" version_id="1" version_string=""><![CDATA[Enables / disables all user ribbons on message user info block.]]></phrase>
+    <phrase title="style_property_xfofRibbonsActive_master" version_id="1" version_string=""><![CDATA[User Ribbons]]></phrase>
+    <phrase title="style_property_xfofRibbonsFiveGroup_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsFiveGroup_master" version_id="1" version_string=""><![CDATA[Ribbon 5 Usergroup ID]]></phrase>
+    <phrase title="style_property_xfofRibbonsFiveTitle_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsFiveTitle_master" version_id="1" version_string=""><![CDATA[Ribbon 5 Title]]></phrase>
+    <phrase title="style_property_xfofRibbonsFive_description_master" version_id="1" version_string=""><![CDATA[Enable / disable.]]></phrase>
+    <phrase title="style_property_xfofRibbonsFive_master" version_id="1" version_string=""><![CDATA[Ribbon 5]]></phrase>
+    <phrase title="style_property_xfofRibbonsFourGroup_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsFourGroup_master" version_id="1" version_string=""><![CDATA[Ribbon 4 Usergroup ID]]></phrase>
+    <phrase title="style_property_xfofRibbonsFourTitle_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsFourTitle_master" version_id="1" version_string=""><![CDATA[Ribbon 4 Title]]></phrase>
+    <phrase title="style_property_xfofRibbonsFour_description_master" version_id="1" version_string=""><![CDATA[Enable / disable.]]></phrase>
+    <phrase title="style_property_xfofRibbonsFour_master" version_id="1" version_string=""><![CDATA[Ribbon 4]]></phrase>
+    <phrase title="style_property_xfofRibbonsOneGroup_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsOneGroup_master" version_id="1" version_string=""><![CDATA[Ribbon 1 Usergroup ID]]></phrase>
+    <phrase title="style_property_xfofRibbonsOneTitle_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsOneTitle_master" version_id="1" version_string=""><![CDATA[Ribbon One Title]]></phrase>
+    <phrase title="style_property_xfofRibbonsOne_description_master" version_id="1" version_string=""><![CDATA[Enable / disable.]]></phrase>
+    <phrase title="style_property_xfofRibbonsOne_master" version_id="1" version_string=""><![CDATA[Ribbon 1]]></phrase>
+    <phrase title="style_property_xfofRibbonsThreeGroup_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsThreeGroup_master" version_id="1" version_string=""><![CDATA[Ribbon 3 Usergroup ID]]></phrase>
+    <phrase title="style_property_xfofRibbonsThreeTitle_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsThreeTitle_master" version_id="1" version_string=""><![CDATA[Ribbon 3 Title]]></phrase>
+    <phrase title="style_property_xfofRibbonsThree_description_master" version_id="1" version_string=""><![CDATA[Enable / disable.]]></phrase>
+    <phrase title="style_property_xfofRibbonsThree_master" version_id="1" version_string=""><![CDATA[Ribbon 3]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwoGroup_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwoGroup_master" version_id="1" version_string=""><![CDATA[Ribbon 2 Usergroup ID]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwoTitle_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwoTitle_master" version_id="1" version_string=""><![CDATA[Ribbon 2 Title]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwo_description_master" version_id="1" version_string=""><![CDATA[Enable / disable.]]></phrase>
+    <phrase title="style_property_xfofRibbonsTwo_master" version_id="1" version_string=""><![CDATA[Ribbon 2]]></phrase>
+    <phrase title="style_property_xfofRibbons_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbons_master" version_id="1" version_string=""><![CDATA[Ribbons General]]></phrase>
+    <phrase title="style_property_xfofRibbonThreeDiv_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonThreeDiv_master" version_id="1" version_string=""><![CDATA[Ribbon 3 Div]]></phrase>
+    <phrase title="style_property_xfofRibbonThree_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonThree_master" version_id="1" version_string=""><![CDATA[Ribbon 3]]></phrase>
+    <phrase title="style_property_xfofRibbonTwoDiv_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonTwoDiv_master" version_id="1" version_string=""><![CDATA[Ribbon 2 Div]]></phrase>
+    <phrase title="style_property_xfofRibbonTwo_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofRibbonTwo_master" version_id="1" version_string=""><![CDATA[Ribbon 2]]></phrase>
+    <phrase title="style_property_xfofStaffOnline_description_master" version_id="1" version_string=""><![CDATA[Enable / disable adding staff online into members online sidebar block.]]></phrase>
+    <phrase title="style_property_xfofStaffOnline_master" version_id="1" version_string=""><![CDATA[Change Staff Online Location]]></phrase>
+    <phrase title="style_property_xfofTest_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofTest_master" version_id="1" version_string=""><![CDATA[Second Test Page]]></phrase>
+    <phrase title="style_property_xfofUserbar_description_master" version_id="1" version_string=""><![CDATA[Enable / disable to shift visitor links to a custom userbar / moderator bar.]]></phrase>
+    <phrase title="style_property_xfofUserbar_master" version_id="1" version_string=""><![CDATA[Userbar]]></phrase>
+    <phrase title="style_property_xfofUserRibbons_description_master" version_id="1" version_string=""><![CDATA[]]></phrase>
+    <phrase title="style_property_xfofUserRibbons_master" version_id="1" version_string=""><![CDATA[User Ribbon Settings]]></phrase>
+    <phrase title="xfof_support_questions" global_cache="1" version_id="1" version_string=""><![CDATA[Please do not ask for forum help at this profile. Profile comments are for personal short messages, not forum help. All forum help questions can be asked at the ]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties>
+    <property property_name="xfofMessageUserInfo" property_type="scalar" definition="1" group_name="xfof" title="Add User Admin Links" description="Enable / disable adding admin user links from message user info block username." css_components="" scalar_type="boolean" scalar_parameters="" display_order="5" sub_group="User Management"><![CDATA[0]]></property>
+    <property property_name="xfofStaffOnline" property_type="scalar" definition="1" group_name="xfof" title="Change Staff Online Location" description="Enable / disable adding staff online into members online sidebar block." css_components="" scalar_type="boolean" scalar_parameters="" display_order="10" sub_group="Sidebar"><![CDATA[0]]></property>
+    <property property_name="xfofOnlineStatus" property_type="css" definition="1" group_name="xfof" title="Online Status" description="" css_components="text,background,border,layout,extra" scalar_type="" scalar_parameters="" display_order="10" sub_group="Online Status"><![CDATA[{"background-color":"@primaryLight","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"top","background-repeat":"repeat-x","border-color":"@primaryLight","border-radius":"3px","border-style":"solid","border-width":"1px","color":"@contentText","extra":"display: block;\nfloat: left;\nposition: relative;\nleft: 20px;\ntop: 2px;\nbox-shadow: 1px 1px 3px rgba(0,0,0, 0.25);","font-size":"10px","font-weight":"bold","margin-bottom":"5px","margin-left":"5px","margin-right":"-5px","margin-top":"1px","padding-bottom":"1px","padding-left":"5px","padding-right":"5px","padding-top":"1px"}]]></property>
+    <property property_name="xfofOfflineStatus" property_type="css" definition="1" group_name="xfof" title="Offline Status" description="" css_components="text,background,border,layout,extra" scalar_type="" scalar_parameters="" display_order="20" sub_group="Online Status"><![CDATA[{"background-color":"@primaryMedium","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"top","background-repeat":"repeat-x","border-color":"@primaryMedium","border-radius":"3px","border-style":"solid","border-width":"1px","color":"@contentBackground","extra":"display: block;\nfloat: left;\nposition: relative;\nleft: 20px;\ntop: 2px;\nbox-shadow: 1px 1px 3px rgba(0,0,0, 0.25);","font-size":"10px","font-weight":"bold","margin-bottom":"5px","margin-left":"5px","margin-right":"-5px","margin-top":"1px","padding-bottom":"1px","padding-left":"5px","padding-right":"5px","padding-top":"1px"}]]></property>
+    <property property_name="xfofInvisibleStatus" property_type="css" definition="1" group_name="xfof" title="Invisible Status" description="" css_components="text,background,border,layout,extra" scalar_type="" scalar_parameters="" display_order="30" sub_group="Online Status"><![CDATA[{"background-color":"@secondaryLighter","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"top","background-repeat":"repeat-x","border-color":"@secondaryLighter","border-radius":"3px","border-style":"solid","border-width":"1px","color":"@secondaryDarker","extra":"display: block;\nfloat: left;\nposition: relative;\nleft: 20px;\ntop: 2px;\nbox-shadow: 1px 1px 3px rgba(0,0,0, 0.25);","font-size":"10px","font-weight":"bold","margin-bottom":"5px","margin-left":"5px","margin-right":"-5px","margin-top":"1px","padding-bottom":"1px","padding-left":"5px","padding-right":"5px","padding-top":"1px"}]]></property>
+    <property property_name="xfofEnableOnlineStatus" property_type="scalar" definition="1" group_name="xfof" title="Online Status Indicator" description="Enable / disable adding online, offline, invisible indicator to message user block." css_components="" scalar_type="boolean" scalar_parameters="" display_order="15" sub_group="Online Status"><![CDATA[0]]></property>
+    <property property_name="xfofUserbar" property_type="scalar" definition="1" group_name="xfof" title="Userbar" description="Enable / disable to shift visitor links to a custom userbar / moderator bar." css_components="" scalar_type="boolean" scalar_parameters="" display_order="30" sub_group="Userbar"><![CDATA[0]]></property>
+    <property property_name="xfofPollToButton" property_type="scalar" definition="1" group_name="xfof" title="Poll To Button" description="Strip poll from create thread to button option. Click button to show poll options." css_components="" scalar_type="boolean" scalar_parameters="" display_order="20" sub_group="Poll To Button"><![CDATA[0]]></property>
+    <property property_name="xfofOnlineStatusSpan" property_type="css" definition="1" group_name="xfof" title="Online Status Span" description="" css_components="background,extra" scalar_type="" scalar_parameters="" display_order="15" sub_group="Online Status"><![CDATA[{"background-color":"@primaryLight","extra":"border-bottom-left-radius: 3px;\nposition: absolute;\nbottom: -4px;\nleft: -1px;\nwidth: 5px;\nheight: 4px;"}]]></property>
+    <property property_name="xfofOfflineStatusSpan" property_type="css" definition="1" group_name="xfof" title="Offline Status Span" description="" css_components="background,extra" scalar_type="" scalar_parameters="" display_order="25" sub_group="Online Status"><![CDATA[{"background-color":"@primaryMedium","extra":"border-bottom-left-radius: 3px;\nposition: absolute;\nbottom: -4px;\nleft: -1px;\nwidth: 5px;\nheight: 4px;"}]]></property>
+    <property property_name="xfofInvisibleStatusSpan" property_type="css" definition="1" group_name="xfof" title="Invisible Status Span" description="" css_components="background,extra" scalar_type="" scalar_parameters="" display_order="35" sub_group="Online Status"><![CDATA[{"background-color":"@secondaryLighter","extra":"border-bottom-left-radius: 3px;\nposition: absolute;\nbottom: -4px;\nleft: -1px;\nwidth: 5px;\nheight: 4px;"}]]></property>
+    <property property_name="xfofRememberMe" property_type="scalar" definition="1" group_name="xfof" title="Remember Me" description="Enables automatic checking of the &quot;remember me&quot; login checkbox." css_components="" scalar_type="boolean" scalar_parameters="" display_order="25" sub_group="Remember Me"><![CDATA[0]]></property>
+    <property property_name="xfofUserRibbons" property_type="scalar" definition="1" group_name="xfof" title="User Ribbon Settings" description="" css_components="" scalar_type="template" scalar_parameters="" display_order="40" sub_group=""><![CDATA[]]></property>
+    <property property_name="xfofTest" property_type="scalar" definition="1" group_name="xfof" title="Second Test Page" description="" css_components="" scalar_type="template" scalar_parameters="" display_order="1" sub_group=""><![CDATA[]]></property>
+    <property property_name="xfofRibbonsActive" property_type="scalar" definition="1" group_name="xfof" title="User Ribbons" description="Enables / disables all user ribbons on message user info block." css_components="" scalar_type="boolean" scalar_parameters="" display_order="40" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsOne" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 1" description="Enable / disable." css_components="" scalar_type="boolean" scalar_parameters="" display_order="41" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsOneTitle" property_type="scalar" definition="1" group_name="xfof" title="Ribbon One Title" description="" css_components="" scalar_type="" scalar_parameters="" display_order="42" sub_group="Ribbons"><![CDATA[Ribbon One]]></property>
+    <property property_name="xfofRibbonsOneGroup" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 1 Usergroup ID" description="" css_components="" scalar_type="" scalar_parameters="" display_order="43" sub_group="Ribbons"><![CDATA[3]]></property>
+    <property property_name="xfofRibbons" property_type="css" definition="1" group_name="xfof" title="Ribbons General" description="" css_components="text,background,layout,extra" scalar_type="" scalar_parameters="" display_order="40" sub_group="Ribbons"><![CDATA[{"extra":"text-align: center;","font-size":"10px","font-weight":"bold","margin-bottom":"-2px","margin-left":"-4px","margin-right":"-4px","margin-top":"-5px"}]]></property>
+    <property property_name="xfofRibbonOne" property_type="css" definition="1" group_name="xfof" title="Ribbon 1" description="" css_components="text,background,border" scalar_type="" scalar_parameters="" display_order="41" sub_group="Ribbons"><![CDATA[{"background-color":"@primaryLight","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"0 0","background-repeat":"repeat-x","border-color":"@primaryLight","border-style":"solid","border-width":"1px","color":"@contentBackground"}]]></property>
+    <property property_name="xfofRibbonOneDiv" property_type="css" definition="1" group_name="xfof" title="Ribbon 1 Div" description="" css_components="background" scalar_type="" scalar_parameters="" display_order="42" sub_group="Ribbons"><![CDATA[{"background-color":"@primaryLight"}]]></property>
+    <property property_name="xfofRibbonTwo" property_type="css" definition="1" group_name="xfof" title="Ribbon 2" description="" css_components="text,background,border" scalar_type="" scalar_parameters="" display_order="43" sub_group="Ribbons"><![CDATA[{"background-color":"@secondaryLight","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"0 0","background-repeat":"repeat-x","border-color":"@secondaryLight","border-style":"solid","border-width":"1px","color":"@contentText"}]]></property>
+    <property property_name="xfofRibbonTwoDiv" property_type="css" definition="1" group_name="xfof" title="Ribbon 2 Div" description="" css_components="background" scalar_type="" scalar_parameters="" display_order="44" sub_group="Ribbons"><![CDATA[{"background-color":"@secondaryLight"}]]></property>
+    <property property_name="xfofRibbonsTwo" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 2" description="Enable / disable." css_components="" scalar_type="boolean" scalar_parameters="" display_order="44" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsTwoTitle" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 2 Title" description="" css_components="" scalar_type="" scalar_parameters="" display_order="45" sub_group="Ribbons"><![CDATA[Ribbon Two]]></property>
+    <property property_name="xfofRibbonsTwoGroup" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 2 Usergroup ID" description="" css_components="" scalar_type="" scalar_parameters="" display_order="46" sub_group="Ribbons"><![CDATA[3]]></property>
+    <property property_name="xfofRibbonsThree" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 3" description="Enable / disable." css_components="" scalar_type="boolean" scalar_parameters="" display_order="47" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsThreeTitle" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 3 Title" description="" css_components="" scalar_type="" scalar_parameters="" display_order="48" sub_group="Ribbons"><![CDATA[Ribbon Three]]></property>
+    <property property_name="xfofRibbonsThreeGroup" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 3 Usergroup ID" description="" css_components="" scalar_type="" scalar_parameters="" display_order="49" sub_group="Ribbons"><![CDATA[3]]></property>
+    <property property_name="xfofRibbonsFour" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 4" description="Enable / disable." css_components="" scalar_type="boolean" scalar_parameters="" display_order="50" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsFourTitle" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 4 Title" description="" css_components="" scalar_type="" scalar_parameters="" display_order="51" sub_group="Ribbons"><![CDATA[Ribbon Four]]></property>
+    <property property_name="xfofRibbonsFourGroup" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 4 Usergroup ID" description="" css_components="" scalar_type="" scalar_parameters="" display_order="52" sub_group="Ribbons"><![CDATA[3]]></property>
+    <property property_name="xfofRibbonsFive" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 5" description="Enable / disable." css_components="" scalar_type="boolean" scalar_parameters="" display_order="53" sub_group="Ribbons"><![CDATA[0]]></property>
+    <property property_name="xfofRibbonsFiveTitle" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 5 Title" description="" css_components="" scalar_type="" scalar_parameters="" display_order="54" sub_group="Ribbons"><![CDATA[Ribbon Five]]></property>
+    <property property_name="xfofRibbonsFiveGroup" property_type="scalar" definition="1" group_name="xfof" title="Ribbon 5 Usergroup ID" description="" css_components="" scalar_type="" scalar_parameters="" display_order="55" sub_group="Ribbons"><![CDATA[3]]></property>
+    <property property_name="xfofRibbonThree" property_type="css" definition="1" group_name="xfof" title="Ribbon 3" description="" css_components="text,background,border" scalar_type="" scalar_parameters="" display_order="45" sub_group="Ribbons"><![CDATA[{"background-color":"@dimmedTextColor","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"0 0","background-repeat":"repeat-x","border-color":"@dimmedTextColor","border-style":"solid","border-width":"1px","color":"@contentBackground"}]]></property>
+    <property property_name="xfofRibbonThreeDiv" property_type="css" definition="1" group_name="xfof" title="Ribbon 3 Div" description="" css_components="background" scalar_type="" scalar_parameters="" display_order="46" sub_group="Ribbons"><![CDATA[{"background-color":"@dimmedTextColor"}]]></property>
+    <property property_name="xfofRibbonFour" property_type="css" definition="1" group_name="xfof" title="Ribbon 4" description="" css_components="text,background,border" scalar_type="" scalar_parameters="" display_order="47" sub_group="Ribbons"><![CDATA[{"background-color":"@secondaryDarker","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"0 0","background-repeat":"repeat-x","border-color":"@secondaryDarker","border-style":"solid","border-width":"1px","color":"@textCtrlBackground"}]]></property>
+    <property property_name="xfofRibbonFourDiv" property_type="css" definition="1" group_name="xfof" title="Ribbon 4 Div" description="" css_components="background" scalar_type="" scalar_parameters="" display_order="48" sub_group="Ribbons"><![CDATA[{"background-color":"@secondaryDarker"}]]></property>
+    <property property_name="xfofRibbonFive" property_type="css" definition="1" group_name="xfof" title="Ribbon 5" description="" css_components="text,background,border" scalar_type="" scalar_parameters="" display_order="49" sub_group="Ribbons"><![CDATA[{"background-color":"rgb(38, 134, 33)","background-image":"@imagePath\/xenforo\/gradients\/category-23px-light.png","background-position":"0 0","background-repeat":"repeat-x","border-color":"rgb(38, 134, 33)","border-style":"solid","border-width":"1px","color":"@textCtrlText"}]]></property>
+    <property property_name="xfofRibbonFiveDiv" property_type="css" definition="1" group_name="xfof" title="Ribbon 5 Div" description="" css_components="background" scalar_type="" scalar_parameters="" display_order="50" sub_group="Ribbons"><![CDATA[{"background-color":"rgb(38, 134, 33)"}]]></property>
+    <property property_name="xfofProfileSupport" property_type="scalar" definition="1" group_name="xfof" title="Profile Support" description="Enable / disable adding a profile support message to admin and staff profiles to stop posting of help questions upon profiles." css_components="" scalar_type="boolean" scalar_parameters="" display_order="21" sub_group="Profile Support"><![CDATA[0]]></property>
+    <property property_name="xfofProfileSupportUrl" property_type="scalar" definition="1" group_name="xfof" title="URL" description="URL path excluding base forum href." css_components="" scalar_type="" scalar_parameters="" display_order="22" sub_group="Profile Support"><![CDATA[relative/url/path]]></property>
+    <property property_name="xfofOverlayRegistration" property_type="scalar" definition="1" group_name="xfof" title="Overlay Registration / Login" description="Change registration dropdown to popup overlay.&#10;&#10;Ensure: Style Properties &gt; Overlays &amp; Tooltips &gt; Enable Overlays is enabled." css_components="" scalar_type="boolean" scalar_parameters="" display_order="16" sub_group="Registration"><![CDATA[0]]></property>
+    <group group_name="xfof" display_order="10000">
+      <title>XF Open Framework (XFOF)</title>
+      <description>Contains XFOF options</description>
+    </group>
+  </style_properties>
+  <templates>
+    <template title="xfof.css" version_id="1" version_string=""><![CDATA[/* Staff Online Merged Into Members Online */
+
+.staffonlinelist li
+{
+	float: left;
+	margin-top: 5px;
+}
+
+.staffonlinelist img
+{
+	height: 32px;
+	width: 32px;
+	margin: 0 5px 5px 0;
+}
+
+/* User Online Status Ribbon */
+
+.UserOnline
+{
+	{xen:property xfofOnlineStatus}
+	
+	border-bottom-left-radius: 0px;
+	margin-left: -{xen:calc '{xen:property content.padding-left} + 5'}px;
+}
+
+	.UserOnline span
+    {
+		{xen:property xfofOnlineStatusSpan}
+    }
+
+.UserOffline
+{
+	{xen:property xfofOfflineStatus}
+	
+	border-bottom-left-radius: 0px;
+	margin-left: -{xen:calc '{xen:property content.padding-left} + 5'}px;
+}
+
+        .UserOffline span
+        {
+			{xen:property xfofOfflineStatusSpan}
+        }
+
+.UserOnlineInvisible
+{
+	{xen:property xfofInvisibleStatus}
+	
+	border-bottom-left-radius: 0px;
+	margin-left: -{xen:calc '{xen:property content.padding-left} + 5'}px;
+}
+
+        .UserOnlineInvisible span
+        {
+			{xen:property xfofInvisibleStatusSpan}
+        }
+
+/* Shift Visitor Links to Moderator Bar */
+
+<xen:if is="{xen:property xfofUserbar}">
+#moderatorBar .adminLink
+{
+	float:left !important;
+}
+</xen:if>
+
+#moderatorBar .visitorTabs
+{
+	float: right;
+}
+
+#moderatorBar .visitorTabs li
+{
+	float:left;
+}
+
+#moderatorBar .visitorTabs .navLink
+{
+	line-height: 16px;
+}
+
+#moderatorBar .visitorTabs .navLink:hover
+{
+	color: {xen:property primaryDark};
+	background: {xen:property primaryLight} url('{xen:property imagePath}/xenforo/gradients/tab-unselected-25px-light.png') repeat-x top;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	text-shadow: 1px 1px 2px white;
+}
+
+#moderatorBar .visitorTabs .navLink .itemCount
+{
+	font-weight: bold;
+	font-size: 9px;
+	color: white;
+	background-color: #e03030;
+	padding: 0 2px;
+	border-radius: 2px;
+	line-height: 16px;
+	min-width: 12px;
+	_width: 12px;
+	text-align: center;
+	text-shadow: none;
+	white-space: nowrap;
+	word-wrap: normal;
+	box-shadow: 2px 2px 5px rgba(0,0,0, 0.25);
+	height: 16px;
+}
+
+#moderatorBar .navTabs .navLink .itemCount .arrow
+{
+	border: 3px solid transparent;
+	border-top-color: #e03030;
+	border-bottom: 1px none black;
+	position: absolute;
+	bottom: -3px;
+	right: 4px;
+	line-height: 0px;
+	text-shadow: none;
+	_display: none;
+	/* Hide from IE6 */
+	width: 0px;
+	height: 0px;
+}
+
+#moderatorBar .visitorTabs .navLink .itemCount:hover
+{
+	
+}
+
+#moderatorBar .visitorTabs .navLink .itemCount.Zero {
+        display: none !important;
+}
+
+/* User Ribbons */
+
+.ribbon
+{
+	{xen:property xfofRibbons}
+}
+.ribbon li
+{
+	border-radius: 3px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	box-shadow: 0px 1px 3px rgba(0,0,0, 0.25);
+	padding: 1px;
+	position: relative;
+	margin-bottom: 5px;
+}
+.ribbon li:last-child
+{
+	margin-bottom: 0px;
+}
+.ribbon li div
+{
+	position: absolute;
+	top: -4px;
+	width: 4px;
+	height: 4px;
+}
+.ribbon li .right
+{
+	border-top-right-radius: 3px;
+	right: -1px;
+}
+.ribbon li .left
+{
+	border-top-left-radius: 3px;
+	left: -1px;
+}
+	.ribbonOne
+	{
+		{xen:property xfofRibbonOne}
+	}
+		.ribbonOne div
+		{
+			{xen:property xfofRibbonOneDiv}
+		 }
+	.ribbonTwo
+	{
+		{xen:property xfofRibbonTwo}
+	}
+		.ribbonTwo div
+		{
+			{xen:property xfofRibbonTwoDiv}
+		}
+	.ribbonThree
+	{
+		{xen:property xfofRibbonThree}
+	}
+		.ribbonThree div
+		{
+			{xen:property xfofRibbonThreeDiv}
+		}
+	.ribbonFour {
+		{xen:property xfofRibbonFour}
+	}
+		.ribbonFour div
+		{
+			{xen:property xfofRibbonFourDiv}
+		}
+	.ribbonFive {
+		{xen:property xfofRibbonFive}
+	}
+		.ribbonFive div
+		{
+			{xen:property xfofRibbonFiveDiv}
+		}
+]]></template>
+    <template title="xfof_message_user_online" version_id="1" version_string=""><![CDATA[<xen:if is="{xen:property xfofEnableOnlineStatus}"><span class="{$userStatus.class}"><span></span>{$userStatus.text}</span></xen:if>]]></template>
+    <template title="xfof_ribbons" version_id="1" version_string=""><![CDATA[<xen:edithint template="xfof.css" />
+
+<xen:if is="{xen:property xfofRibbonsActive}">
+	<ul class="ribbon">
+		<xen:if is="{xen:helper ismemberof, $user, {xen:property xfofRibbonsOneGroup}} AND {xen:property xfofRibbonsOne}">
+			<li class="ribbonOne">
+				<div class="left"></div>
+				<div class="right"></div>
+				{xen:property xfofRibbonsOneTitle}
+			</li>
+		</xen:if>
+		
+		<xen:if is="{xen:helper ismemberof, $user, {xen:property xfofRibbonsTwoGroup}} AND {xen:property xfofRibbonsTwo}">
+			<li class="ribbonTwo">
+				<div class="left"></div>
+				<div class="right"></div>
+				{xen:property xfofRibbonsTwoTitle}
+			</li>
+		</xen:if>
+		
+		<xen:if is="{xen:helper ismemberof, $user, {xen:property xfofRibbonsThreeGroup}} AND {xen:property xfofRibbonsThree}">
+			<li class="ribbonThree">
+				<div class="left"></div>
+				<div class="right"></div>
+				{xen:property xfofRibbonsThreeTitle}
+			</li>
+		</xen:if>
+		
+		<xen:if is="{xen:helper ismemberof, $user, {xen:property xfofRibbonsFourGroup}} AND {xen:property xfofRibbonsFour}">
+			<li class="ribbonFour">
+				<div class="left"></div>
+				<div class="right"></div>
+				{xen:property xfofRibbonsFourTitle}
+			</li>
+		</xen:if>
+		
+		<xen:if is="{xen:helper ismemberof, $user, {xen:property xfofRibbonsFiveGroup}} AND {xen:property xfofRibbonsFive}">
+			<li class="ribbonFive">
+				<div class="left"></div>
+				<div class="right"></div>
+				{xen:property xfofRibbonsFiveTitle}
+			</li>
+		</xen:if>
+		
+	</ul>
+</xen:if>]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="hlf001" template_title="helper_login_form" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Automatically check &quot;remember me&quot; login field." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<div><label for="ctrl_pageLogin_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_pageLogin_remember" /> {xen:phrase stay_logged_in}</label></div>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofRememberMe}">
+<div><label for="ctrl_pageLogin_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" checked="checked" id="ctrl_pageLogin_remember" /> {xen:phrase stay_logged_in}</label></div>
+
+<xen:else />
+
+<div><label for="ctrl_pageLogin_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_pageLogin_remember" /> {xen:phrase stay_logged_in}</label></div>
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="lb001" template_title="login_bar" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Registration overlay." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:require css="login_bar.css" />]]></search_value>
+      <replace_value><![CDATA[<xen:require css="login_bar.css" />
+
+<xen:if is="{xen:property xfofOverlayRegistration}">
+<script>
+XenForo.LoginBar = function(a){};
+</script>
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="lb002" template_title="login_bar" execute_order="2" modification_type="str_replace" callback_class="" callback_method="" description="Registration overlay." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[class="concealed noOutline"]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofOverlayRegistration}">
+class="OverlayTrigger concealed noOutline"
+<xen:else />
+class="concealed noOutline"
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="lbf001" template_title="login_bar_form" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Automatically check &quot;remember me&quot; login field." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103" /> {xen:phrase stay_logged_in}</label>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofRememberMe}">
+<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" checked="checked" id="ctrl_remember" tabindex="103" /> {xen:phrase stay_logged_in}</label>
+
+<xen:else />
+
+<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103" /> {xen:phrase stay_logged_in}</label>
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="mb001" template_title="moderator_bar" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Shift visitor tabs to moderator bar." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:hook name="moderator_bar" />]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$visitor.user_id} && {xen:property xfofUserbar}">
+<xen:include template="navigation_visitor_tab" />
+</xen:if>
+ 
+<xen:hook name="moderator_bar" />]]></replace_value>
+    </modification>
+    <modification title="mui001" template_title="message_user_info" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Online status template modification." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:username user="$user" itemprop="name" rich="true" />]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$visitor.is_admin} && {xen:property xfofMessageUserInfo}">
+	<div class="Popup">
+		<span style="display:inline" rel="Menu"><xen:username user="$user" itemprop="name" rich="true" style="display:inline" /></span>
+		<div class="Menu JsOnly formPopup">
+			<ul class="secondaryContent blockLinksList">
+				<li><a style ="cursor: pointer" onClick="window.open('admin.php?users/{$user.user_id}/edit','edit','width=1000,height=850')"><b>Edit User</b></a></li>
+				<li><a style ="cursor: pointer" onClick="window.open('admin.php?users/{$user.user_id}/avatar','edit','width=1000,height=650')"><b>Edit Avatar</b></a></li>
+				<li><a style ="cursor: pointer" onClick="window.open('admin.php?banning/users/{$user.user_id}/add','ban','width=1000,height=650')"><b>Ban User</b></a></li>
+			</ul>
+		</div>
+	</div>
+<xen:else />
+	<xen:username user="$user" itemprop="name" rich="true" />
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="mui002" template_title="message_user_info" execute_order="2" modification_type="str_replace" callback_class="" callback_method="" description="Inserts user ribbons conditional." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:if is="!{$isQuickReply}">]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofRibbonsActive}"><xen:include template="xfof_ribbons" /></xen:if>
+<xen:if is="!{$isQuickReply}">]]></replace_value>
+    </modification>
+    <modification title="mv001" template_title="member_view" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="Adds profile comment to admin and moderator profiles." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:if is="{$canPostOnProfile}">]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$canPostOnProfile}">
+<xen:if is="{xen:property xfofProfileSupport}">
+<xen:if is="{$user.is_moderator} OR {$user.is_admin}">
+<p class="importantMessage">{xen:phrase xfof_support_questions} <a href="{xen:property xfofProfileSupportUrl}">Help Forum</a>.</p>
+</xen:if>
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="n001" template_title="navigation" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Shift visitor tabs to moderator bar." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:if is="{$visitor.user_id}"><xen:include template="navigation_visitor_tab" /></xen:if>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofUserbar}">
+
+<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected blankTab PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+</ul>
+</div>
+</li>
+</xen:if>
+</ul>
+
+<xen:else />
+
+<xen:if is="{$visitor.user_id}"><xen:include template="navigation_visitor_tab" /></xen:if>
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="nvt001" template_title="navigation_visitor_tab" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Shift visitor tabs to moderator bar." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:if is="{$tabs.account.selected}">
+	<li class="navTab selected PopupClosed">
+		<div class="tabLinks">
+			<div class="primaryContent menuHeader">
+				<h3>{$tabs.account.title}</h3>
+				<div class="muted">{xen:phrase quick_links}</div>
+			</div>
+			<ul class="secondaryContent blockLinksList">
+			<xen:hook name="navigation_tabs_account">
+				<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+				<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+				<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+				<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+			</xen:hook>
+			</ul>
+		</div>
+	</li>
+	</xen:if>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofUserbar}">
+
+<xen:comment>
+<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+  </ul>
+</div>
+</li>
+</xen:if>
+</xen:comment>
+
+<xen:else />
+
+<xen:if is="{$tabs.account.selected}">
+	<li class="navTab selected PopupClosed">
+		<div class="tabLinks">
+			<div class="primaryContent menuHeader">
+				<h3>{$tabs.account.title}</h3>
+				<div class="muted">{xen:phrase quick_links}</div>
+			</div>
+			<ul class="secondaryContent blockLinksList">
+			<xen:hook name="navigation_tabs_account">
+				<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+				<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+				<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+				<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+			</xen:hook>
+			</ul>
+		</div>
+	</li>
+	</xen:if>
+
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="nvt002" template_title="navigation_visitor_tab" execute_order="2" modification_type="str_replace" callback_class="" callback_method="" description="Shift visitor tabs to moderator bar." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<li class="navTab PopupClosed"><a href="{xen:link logout}" class="navLink visitorTabItem OverlayTrigger">{xen:phrase log_out}</a></li>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofUserbar}">
+<li class="navTab PopupClosed"><a href="{xen:link logout}" class="visitorTabItem OverlayTrigger itemLabel">{xen:phrase log_out}</a></li>
+
+<xen:else />
+
+<li class="navTab PopupClosed"><a href="{xen:link logout}" class="navLink visitorTabItem OverlayTrigger">{xen:phrase log_out}</a></li>
+
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="pc001" template_title="PAGE_CONTAINER" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Shift visitor tabs to moderator bar." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:if is="{$visitor.is_moderator} || {$visitor.is_admin}">
+	<xen:include template="moderator_bar" />
+<xen:elseif is="!{$visitor.user_id} && !{$hideLoginBar}" />
+	<xen:include template="login_bar" />
+</xen:if>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofUserbar}">
+
+<xen:if is="{$visitor.user_id}">
+	<xen:include template="moderator_bar" />
+<xen:elseif is="!{$visitor.user_id} && !{$hideLoginBar}" />
+	<xen:include template="login_bar" />
+</xen:if>
+
+<xen:else />
+
+<xen:if is="{$visitor.is_moderator} || {$visitor.is_admin}">
+	<xen:include template="moderator_bar" />
+<xen:elseif is="!{$visitor.user_id} && !{$hideLoginBar}" />
+	<xen:include template="login_bar" />
+</xen:if>
+
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="pcss001" template_title="public.css" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Adds xfof.css into public.css. No requirement to call into templates, just edit hint for viewing." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:include template="thread_prefixes.css" />]]></search_value>
+      <replace_value><![CDATA[<xen:include template="thread_prefixes.css" />
+
+<xen:include template="xfof.css" />]]></replace_value>
+    </modification>
+    <modification title="sou001" template_title="sidebar_online_users" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Adds staff online into members online as small avatars." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:edithint template="sidebar.css" />
+
+<!-- block: sidebar_online_staff -->
+<xen:if hascontent="true">
+	<div class="section staffOnline avatarList">
+		<div class="secondaryContent">
+			<h3>{xen:phrase staff_online_now}</h3>
+			<ul>
+				<xen:contentcheck>
+					<xen:foreach loop="$onlineUsers.records" value="$user">
+						<xen:if is="{$user.is_moderator} OR {$user.is_admin}">
+							<li>
+								<xen:avatar user="$user" size="s" img="true" />
+								<xen:username user="$user" rich="true" />
+								<div class="userTitle">{xen:helper userTitle, $user}</div>
+							</li>
+						</xen:if>
+					</xen:foreach>
+				</xen:contentcheck>
+			</ul>
+		</div>
+	</div>
+</xen:if>
+<!-- end block: sidebar_online_staff -->
+
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">		
+	<div class="secondaryContent">
+		<h3><a href="{xen:link online}" title="{xen:phrase see_all_online_users}">{xen:phrase members_online_now}</a></h3>
+		
+		<xen:if is="{$onlineUsers.records}">
+		
+			<xen:if is="{$visitor.user_id}">
+				<xen:if hascontent="true">
+				<h4 class="minorHeading"><a href="{xen:link account/following}">{xen:phrase people_you_follow}:</a></h4>
+				<ul class="followedOnline">
+					<xen:contentcheck>
+						<xen:foreach loop="$onlineUsers.records" value="$user">
+							<xen:if is="{$user.followed}">
+								<li title="{$user.username}" class="Tooltip"><xen:avatar user="$user" size="s" img="true" class="_plainImage" /></li>
+							</xen:if>
+						</xen:foreach>
+					</xen:contentcheck>
+				</ul>
+				<h4 class="minorHeading"><a href="{xen:link members}">{xen:phrase members}:</a></h4>
+				</xen:if>
+			</xen:if>
+			
+			<ol class="listInline">
+				<xen:foreach loop="$onlineUsers.records" value="$user" i="$i">
+					<xen:if is="{$i} <= {$onlineUsers.limit}">
+						<li>
+						<xen:if is="{$user.user_id}">
+							<a href="{xen:link members, $user}"
+								class="username{xen:if '!{$user.visible}', ' invisible'}{xen:if {$user.followed}, ' followed'}">{$user.username}</a><xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						<xen:else />
+							{xen:phrase guest}<xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						</xen:if>
+						</li>
+					</xen:if>
+				</xen:foreach>
+				<xen:if is="{$onlineUsers.recordsUnseen}">
+					<li class="moreLink">... <a href="{xen:link online}" title="{xen:phrase see_all_visitors}">{xen:phrase and_x_more, 'count={xen:number $onlineUsers.recordsUnseen}'}</a></li>
+				</xen:if>
+			</ol>
+		</xen:if>
+		
+		<div class="footnote">
+			{xen:phrase online_now_x_members_y_guests_z, 'total={xen:number $onlineUsers.total}', 'members={xen:number $onlineUsers.members}', 'guests={xen:number $onlineUsers.guests}'}
+		</div>
+	</div>
+</div>
+<!-- end block: sidebar_online_users -->]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofStaffOnline}">
+
+<xen:edithint template="sidebar.css" />
+
+<!-- block: sidebar_online_staff -->
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">
+    <div class="secondaryContent">
+        <h3><a href="{xen:link online}" title="{xen:phrase see_all_online_users}">{xen:phrase members_online_now}</a></h3>
+
+<xen:if hascontent="true">
+                <h4 class="minorHeading">{xen:phrase staff_online_now}</h4>
+            <ul class="staffonlinelist">
+                <xen:contentcheck>
+                    <xen:foreach loop="$onlineUsers.records" value="$user">
+                        <xen:if is="{$user.is_moderator} OR {$user.is_admin}">
+                            <li title="{$user.username}" class="Tooltip">
+                                <xen:avatar user="$user" size="s" img="true" />
+                            </li>
+                        </xen:if>
+                    </xen:foreach>
+                </xen:contentcheck>
+            </ul>
+<div style="clear:both;"></div>
+</xen:if>
+
+        <xen:if is="{$onlineUsers.records}">
+
+            <xen:if is="{$visitor.user_id}">
+                <xen:if hascontent="true">
+                <h4 class="minorHeading"><a href="{xen:link account/following}">{xen:phrase people_you_follow}:</a></h4>
+                <ul class="followedOnline">
+                    <xen:contentcheck>
+                        <xen:foreach loop="$onlineUsers.records" value="$user">
+                            <xen:if is="{$user.followed}">
+                                <li title="{$user.username}" class="Tooltip"><xen:avatar user="$user" size="s" img="true" class="_plainImage" /></li>
+                            </xen:if>
+                        </xen:foreach>
+                    </xen:contentcheck>
+                </ul>
+                </xen:if>
+            </xen:if>
+                <h4 class="minorHeading"><a href="{xen:link members}">{xen:phrase members}:</a></h4>
+            <ol class="listInline">
+                <xen:foreach loop="$onlineUsers.records" value="$user" i="$i">
+                    <xen:if is="{$i} <= {$onlineUsers.limit}">
+                        <li>
+                        <xen:if is="{$user.user_id}">
+                            <a href="{xen:link members, $user}"
+                                class="username{xen:if '!{$user.visible}', ' invisible'}{xen:if {$user.followed}, ' followed'}">{$user.username}</a><xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+                        <xen:else />
+                            {xen:phrase guest}<xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+                        </xen:if>
+                        </li>
+                    </xen:if>
+                </xen:foreach>
+                <xen:if is="{$onlineUsers.recordsUnseen}">
+                    <li class="moreLink">... <a href="{xen:link online}" title="{xen:phrase see_all_visitors}">{xen:phrase and_x_more, 'count={xen:number $onlineUsers.recordsUnseen}'}</a></li>
+                </xen:if>
+            </ol>
+        </xen:if>
+
+        <div class="footnote">
+            {xen:phrase online_now_x_members_y_guests_z, 'total={xen:number $onlineUsers.total}', 'members={xen:number $onlineUsers.members}', 'guests={xen:number $onlineUsers.guests}'}
+        </div>
+    </div>
+</div>
+<!-- end block: sidebar_online_staff -->
+<!-- end block: sidebar_online_users -->
+
+<xen:else />
+
+<xen:edithint template="sidebar.css" />
+
+<!-- block: sidebar_online_staff -->
+<xen:if hascontent="true">
+	<div class="section staffOnline avatarList">
+		<div class="secondaryContent">
+			<h3>{xen:phrase staff_online_now}</h3>
+			<ul>
+				<xen:contentcheck>
+					<xen:foreach loop="$onlineUsers.records" value="$user">
+						<xen:if is="{$user.is_moderator} OR {$user.is_admin}">
+							<li>
+								<xen:avatar user="$user" size="s" img="true" />
+								<xen:username user="$user" rich="true" />
+								<div class="userTitle">{xen:helper userTitle, $user}</div>
+							</li>
+						</xen:if>
+					</xen:foreach>
+				</xen:contentcheck>
+			</ul>
+		</div>
+	</div>
+</xen:if>
+<!-- end block: sidebar_online_staff -->
+
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">		
+	<div class="secondaryContent">
+		<h3><a href="{xen:link online}" title="{xen:phrase see_all_online_users}">{xen:phrase members_online_now}</a></h3>
+		
+		<xen:if is="{$onlineUsers.records}">
+		
+			<xen:if is="{$visitor.user_id}">
+				<xen:if hascontent="true">
+				<h4 class="minorHeading"><a href="{xen:link account/following}">{xen:phrase people_you_follow}:</a></h4>
+				<ul class="followedOnline">
+					<xen:contentcheck>
+						<xen:foreach loop="$onlineUsers.records" value="$user">
+							<xen:if is="{$user.followed}">
+								<li title="{$user.username}" class="Tooltip"><xen:avatar user="$user" size="s" img="true" class="_plainImage" /></li>
+							</xen:if>
+						</xen:foreach>
+					</xen:contentcheck>
+				</ul>
+				<h4 class="minorHeading"><a href="{xen:link members}">{xen:phrase members}:</a></h4>
+				</xen:if>
+			</xen:if>
+			
+			<ol class="listInline">
+				<xen:foreach loop="$onlineUsers.records" value="$user" i="$i">
+					<xen:if is="{$i} <= {$onlineUsers.limit}">
+						<li>
+						<xen:if is="{$user.user_id}">
+							<a href="{xen:link members, $user}"
+								class="username{xen:if '!{$user.visible}', ' invisible'}{xen:if {$user.followed}, ' followed'}">{$user.username}</a><xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						<xen:else />
+							{xen:phrase guest}<xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						</xen:if>
+						</li>
+					</xen:if>
+				</xen:foreach>
+				<xen:if is="{$onlineUsers.recordsUnseen}">
+					<li class="moreLink">... <a href="{xen:link online}" title="{xen:phrase see_all_visitors}">{xen:phrase and_x_more, 'count={xen:number $onlineUsers.recordsUnseen}'}</a></li>
+				</xen:if>
+			</ol>
+		</xen:if>
+		
+		<div class="footnote">
+			{xen:phrase online_now_x_members_y_guests_z, 'total={xen:number $onlineUsers.total}', 'members={xen:number $onlineUsers.members}', 'guests={xen:number $onlineUsers.guests}'}
+		</div>
+	</div>
+</div>
+<!-- end block: sidebar_online_users -->
+
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="svp001" template_title="sidebar_visitor_panel" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Registration overlay" version_id="1" version_string="" active="1">
+      <search_value><![CDATA[class="inner"]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofOverlayRegistration}">
+class="OverlayTrigger inner"
+<xen:else />
+class="inner"
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="tc001" template_title="thread_create" execute_order="1" modification_type="str_replace" callback_class="" callback_method="" description="Strip thread poll to poll button option." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:include template="attachment_upload_button" />]]></search_value>
+      <replace_value><![CDATA[<xen:include template="attachment_upload_button" />
+<xen:if is="{xen:property xfofPollToButton}"><input type="button" value="{xen:phrase post_poll}" class="button DisableOnSubmit JsOnly" id="button_post_poll") /></xen:if>
+]]></replace_value>
+    </modification>
+    <modification title="tc002" template_title="thread_create" execute_order="2" modification_type="str_replace" callback_class="" callback_method="" description="Strip thread poll to poll button option." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<xen:hook name="thread_create_fields_extra" params="{xen:array 'forum={$forum}'}" />]]></search_value>
+      <replace_value><![CDATA[<xen:hook name="thread_create_fields_extra" params="{xen:array 'forum={$forum}'}" />
+<xen:if is="{xen:property xfofPollToButton}">
+<div id="post_poll" style="display:none">
+</xen:if>]]></replace_value>
+    </modification>
+    <modification title="tc003" template_title="thread_create" execute_order="3" modification_type="str_replace" callback_class="" callback_method="" description="Strip thread poll to poll button option." version_id="1" version_string="" active="1">
+      <search_value><![CDATA[<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{xen:property xfofPollToButton}">
+</div>
+<script>$('#button_post_poll').click(function() {
+  $('#post_poll').slideToggle();
+});</script>
+</xen:if>
+
+<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>
